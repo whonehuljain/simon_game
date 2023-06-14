@@ -7,6 +7,13 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 var started = false;
 var level = 0;
 
+$(".start-button").click(function () {
+    if (!started) {
+        $("#level-title").text("Level "+level);
+        nextSequence();
+        started=true;
+    }
+});
 
 $(document).keypress(function () {
     if (!started) {
@@ -76,6 +83,8 @@ function checkAnswer(currentLevel) {
 
         $("#level-title").text("Game Over, Press Any Key to Restart");
 
+        $(".start-button").text("Restart")
+        
         startOver();
     }
 }
